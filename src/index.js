@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+let getTime = new Date();
+getTime = getTime.getHours();
+let greating ='';
 
+//inline css
+const cssStyle = {};
+
+if (getTime >= 1 && getTime < 12){
+   greating ='Good Morning';
+   cssStyle.color = 'green';
+}else if(getTime > 12 && getTime <19){
+   greating = 'Good afternoon';
+   cssStyle.color = 'orange';
+}else{
+   greating ='Good Night';
+   cssStyle.color = 'black';
+}
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  <> 
+<div>
+<h1>Hello sir,<span style ={cssStyle}>{greating}</span> </h1>
+</div>
+</>,
+  document.getElementById('root'));
